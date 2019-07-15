@@ -3,7 +3,7 @@
 Plugin Name: Thistle and That Custom Application Plugin
 Plugin URI: https://thistleandthat.com
 Description: An advanced floral configurator for wedding arrangements. Built with vue.
-Version: 0.2
+Version: 0.3
 Author: Madwire Media
 Author URI: https://madwire.com/
 License: GPL2
