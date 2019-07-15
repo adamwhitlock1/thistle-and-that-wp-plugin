@@ -1,0 +1,430 @@
+.md-dialog-container {
+  background-color: #fff !important;
+}
+
+.md-field.md-theme-default label {
+  color: rgb(190, 154, 47);
+}
+
+body,
+html {
+  font-family: 'Montserrat', Arial, sans-serif !important;
+}
+
+hr {
+  margin: 0.5em 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* BUTTON STYLING */
+
+.md-button {
+  border-radius: 50px !important;
+  border: none !important;
+  padding-right: 15px;
+  padding-left: 15px;
+  transition: 0.3s;
+}
+
+.md-button:hover {
+  border: none !important;
+  transform: translateY(-3px);
+}
+
+.md-secondary {
+  background-color: #D8CFE8 !important;
+  color: #4e4e4e !important;
+  transition: 0.3s;
+}
+
+.md-secondary .md-button-content,
+.md-secondary i {
+  color: #4e4e4e !important;
+}
+
+.md-secondary:hover {
+  background-color: rgb(225, 215, 241) !important;
+  transform: translateY(-3px);
+}
+
+.reveal-holder {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.reveal-block {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 101%;
+  background: #fff;
+}
+
+.reveal-block.right::before {
+  transform: scaleX(0);
+  transform-origin: 0% 100%;
+}
+
+.reveal-block.right.aos-animate::before {
+  transform: scaleX(1);
+}
+
+[data-aos='reveal-item'] {
+  visibility: hidden;
+  transition-property: visibility;
+  transition-duration: 0s;
+}
+
+[data-aos='reveal-item'].aos-animate {
+  visibility: visible;
+}
+
+.reveal-block::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #be9a2f;
+  transition-property: transform;
+  transition-duration: 0.9s;
+}
+
+[data-aos='reveal-right'] {
+  transform: scaleX(1);
+  transform-origin: 100% 0%;
+  transition-property: transform;
+  transition-delay: 1.2s;
+}
+
+[data-aos='reveal-right'].aos-animate {
+  transform: scaleX(0);
+}
+
+// loading screen animation
+
+.lds-dual-ring {
+  display: inline-block;
+  margin-top: 15px;
+  width: 75px;
+  height: 75px;
+}
+.lds-dual-ring:after {
+  content: ' ';
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid rgb(190, 154, 47);
+  border-color: rgb(190, 154, 47) transparent rgb(190, 154, 47) transparent;
+  animation: lds-dual-ring 1.75s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.vh-80 {
+  height: 80vh;
+}
+
+.fade {
+  transition: 0.5s;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  opacity: 0;
+  transition: 0.5s;
+  height: 0px;
+}
+.fade-enter {
+  transition-delay: 0.3s;
+  opacity: 0;
+  height: 0px;
+}
+
+.fade-leave-to {
+  transition-delay: 0.5s;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.v-select__selections input {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 1px solid rgba(0, 0, 0, 0) !important;
+}
+
+.anchor {
+  padding-top: 175px;
+  margin-top: -155px;
+}
+
+/* dialog box and overlay adjustments */
+.md-dialog {
+  z-index: 150;
+}
+
+.md-overlay {
+  z-index: 140;
+}
+
+/* circular radio input with image */
+.circular-label > .circular-radio {
+  /* HIDE RADIO */
+  opacity: 0; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+
+.circular-label > .circular-radio + img,
+.circular-label > .circular-radio p:hover * {
+  /* IMAGE STYLES */
+  cursor: pointer;
+  border: 5px solid transparent;
+  transition: 0.4s;
+}
+
+.circular-label > .circular-radio:checked + img,
+.collection-radio.active + img,
+.circular-radio.active + img {
+  /* (RADIO CHECKED) IMAGE STYLES */
+  border: 5px solid #D8CFE8 !important;
+}
+
+.circular-label {
+  margin-bottom: 0;
+}
+
+.vue-swatches__swatch {
+  -webkit-box-shadow: 0px 1px 15px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 1px 15px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 15px 0px rgba(0, 0, 0, 0.4);
+}
+
+.btn-default {
+  border-radius: 0px !important;
+  background-color: #be9a2f !important;
+  color: #fff !important;
+  transition: 0.3s !important;
+  transform: translateY(-2px);
+}
+
+html .btn-default,
+html .btn-default:before,
+html .btn-default:after {
+  box-sizing: border-box;
+  transition: 0.5s ease-in-out;
+}
+
+.btn-default:before,
+.btn-default:after {
+  z-index: -1;
+}
+
+a.btn-default {
+  text-decoration: none !important;
+  line-height: 45px;
+  color: black;
+}
+
+@media (min-width: 600px) {
+  .wrap {
+    width: 100%;
+    float: right;
+  }
+}
+[class^='btn-'] {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 45px;
+  max-width: 100%;
+}
+
+.btn-default {
+  color: #80a3ba;
+}
+.btn-default span {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: #466362;
+  transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.btn-default:hover {
+  color: #dae4eb;
+}
+.btn-default:hover span {
+  width: 225%;
+  height: 562.5px;
+}
+.btn-default:active {
+  background-color: #466362;
+}
+
+/* making sure that md-select inputs are on top of things like modals */
+.md-menu-content.md-select-menu {
+  z-index: 200 !important;
+}
+
+/* dropdown select styling */
+.dropdown-select {
+  display: block;
+  font-size: 16px;
+  color: #be9a2f;
+  line-height: 1.9;
+  padding-top: 16px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 4px 0 24px;
+  border: none;
+  border-bottom: 1px solid rgb(89, 89, 89);
+  border-radius: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-image: url('data:image/svg+xml,%3Csvg%20id%3D%22Layer_1%22%20data-name%3D%22Layer%201%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2026.04%2012.83%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23735622%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3EUntitled-2%3C%2Ftitle%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%2213.02%2012.83%206.51%206.42%200%200%2013.02%200%2026.04%200%2019.53%206.42%2013.02%2012.83%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 60%, 0 0;
+  background-size: 0.65em auto, 100%;
+}
+.dropdown-select::-ms-expand {
+  display: none;
+}
+.dropdown-select:hover {
+  border-color: #be9a2f;
+}
+.dropdown-select:focus {
+  border-color: #be9a2f;
+  box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  border-bottom-width: 2px;
+  color: #222;
+  outline: none;
+}
+.dropdown-select option {
+  font-weight: normal;
+}
+
+/* hover effect for centerpiece and arrangement sections */
+.title-centerpiece-arrangement {
+  height: 2.5em;
+}
+.grid {
+  position: relative;
+  margin: 0 auto;
+  padding: 1em 0 4em;
+  max-width: 1000px;
+  list-style: none;
+}
+
+/* Common style */
+.grid figure {
+  position: relative;
+  overflow: hidden;
+  max-width: 480px;
+  max-height: 3480px;
+  cursor: pointer;
+}
+
+.grid figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+}
+
+.grid figure figcaption {
+  color: #fff;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.grid figure figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+
+figure.effect-sadie h2 {
+  position: absolute;
+  display: block;
+  top: 0px;
+  color: #1a1a1a;
+  transition: 0.35s;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9);
+  transform: translateY(15px) translateX(20px);
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 2px 7px;
+}
+
+figure.effect-sadie:hover h2 {
+  transform: translateY(20px) translateX(25px);
+}
+
+figure.effect-sadie {
+  transition: all 0.4s;
+}
+
+figure.effect-sadie:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.06), 0 10px 10px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  cursor: pointer;
+}
+
+.select {
+  transition: 0.4s;
+  padding: 3px 15px;
+  margin: 5px 15px;
+  border-radius: 50px;
+}
+
+.select:hover {
+  transform: translateY(-2px);
+}
+
+.select-btn {
+  border: 1px solid gray;
+  cursor: pointer;
+}
+
+.selected-btn {
+  border: 1px solid #D8CFE8;
+  background-color: #D8CFE8;
+  color: #4e4e4e;
+}
+
+.qty-input {
+  text-align: center;
+  padding-left: 10px !important;
+}
+
+.qty-label {
+  width: 100%;
+  text-align: center;
+}
