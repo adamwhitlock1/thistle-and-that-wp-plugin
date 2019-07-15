@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const package = require('./package.json');
+const package = require('./package.json.js');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
@@ -8,7 +8,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 
-const config = require('./config.json');
+const config = require('./config.json.js');
 
 // Naming and path settings
 var appName = 'app';
