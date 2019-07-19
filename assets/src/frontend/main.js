@@ -43,7 +43,7 @@ Vue.use(MdSnackbar)
 Vue.use(VueResource)
 
 // inView triggers events based on items in view during scroll
-InView.offset(-50)
+InView.offset(-55)
 Vue.use(InView)
 
 // swatches library for color swatch inputs

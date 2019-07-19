@@ -1,45 +1,44 @@
-const webpack = require('webpack');
-const path = require('path');
-const package = require('./package.json.js');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
+const webpack = require('webpack')
+const path = require('path')
+const packages = require('./package.json')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-const config = require('./config.json.js');
+const config = require('./config.json')
 
 // Naming and path settings
-var appName = 'app';
+var appName = 'app'
 var entryPoint = {
   frontend: './assets/src/frontend/main.js',
   admin: './assets/src/admin/main.js',
-  vendor: Object.keys(package.dependencies),
+  vendor: Object.keys(packages.dependencies),
   style: './assets/styles/style.css'
-};
+}
 
-var exportPath = path.resolve(__dirname, './assets/js');
+var exportPath = path.resolve(__dirname, './assets/js')
 
 // Enviroment flag
-var plugins = [];
-var env = process.env.WEBPACK_ENV;
+var plugins = []
+var env = process.env.WEBPACK_ENV
 
 function isProduction() {
   if (process.env.WEBPACK_ENV !== 'production') {
     console.log(
       'RUNNING DEV SERVER FOR: ' + process.env.MADWIRE_USER.toUpperCase()
-    );
+    )
   }
-  return process.env.WEBPACK_ENV === 'production';
+  return process.env.WEBPACK_ENV === 'production'
 }
 
 // extract css into its own file
 const extractCss = new ExtractTextPlugin({
   filename: '../css/[name].css'
-});
+})
 
-plugins.push(extractCss);
+plugins.push(extractCss)
 
 // Extract all 3rd party modules into a separate 'vendor' chunk
 plugins.push(
@@ -47,7 +46,7 @@ plugins.push(
     name: 'vendor',
     minChunks: ({ resource }) => /node_modules/.test(resource)
   })
-);
+)
 
 plugins.push(
   new BrowserSyncPlugin({
@@ -59,7 +58,7 @@ plugins.push(
     reloadDelay: 0,
     ui: false
   })
-);
+)
 
 // Generate a 'manifest' chunk to be inlined in the HTML template
 // plugins.push(new webpack.optimize.CommonsChunkPlugin('manifest'));
@@ -75,18 +74,18 @@ plugins.push(
       }
     }
   })
-);
+)
 
 
 
 // Differ settings based on production flag
 if (isProduction()) {
-  console.log('PRODUCTION BUILD');
+  console.log('PRODUCTION BUILD')
   plugins.push(
     new UglifyJsPlugin({
       sourceMap: true
     })
-  );
+  )
 
   plugins.push(
     new webpack.DefinePlugin({
@@ -94,26 +93,26 @@ if (isProduction()) {
         NODE_ENV: '"production"'
       }
     })
-  );
+  )
 
   plugins.push(
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   )
 
-  appName = '[name].min.js';
-  vueVersion = 'vue/dist/vue.min.js';
-  console.log(appName);
-  console.log(vueVersion);
+  appName = '[name].min.js'
+  vueVersion = 'vue/dist/vue.min.js'
+  console.log(appName)
+  console.log(vueVersion)
 } else {
-  appName = '[name].js';
-  vueVersion = 'vue/dist/vue.js';
+  appName = '[name].js'
+  vueVersion = 'vue/dist/vue.js'
 }
 
   plugins.push(
     new BundleAnalyzerPlugin({
       analyzerPort: 1337
     })
-  );
+  )
 
 
 
@@ -162,4 +161,4 @@ module.exports = {
       }
     ]
   }
-};
+}

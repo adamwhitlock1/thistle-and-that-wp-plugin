@@ -109,6 +109,7 @@
               v-model="budget"
               class="mdl-textfield__input"
               type="text"
+              min="0"
               @blur="profileUpdateMixin('budget')"
             />
             <span

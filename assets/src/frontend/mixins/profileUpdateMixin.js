@@ -1,4 +1,4 @@
-
+import axios from 'axios'
 export default {
   methods: {
     profileUpdateMixin(fieldToUpdate, member = 'none') {
@@ -16,6 +16,11 @@ export default {
       // if we are updating all fields with the ajax call then append active selections to the object as well
       if (fieldToUpdate === 'all' || fieldToUpdate === 'clear') {
         userProfile['activeSelections'] = this.$store.state.activeSelections
+      }
+
+      if (fieldToUpdate === 'all_chunk') {
+        console.log("ALL NEW CHUNK UPDATE")
+        return true
       }
 
       // console.log(userProfile)

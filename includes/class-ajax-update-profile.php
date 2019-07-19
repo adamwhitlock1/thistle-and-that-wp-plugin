@@ -109,6 +109,8 @@ function ajax_user_profile_callback()
           update_user_meta($user_id, $key . "_" . $key2, " ");
         }
       }
+    } elseif ( $field_to_update === 'all_chunk' ) {
+
     }
 
 

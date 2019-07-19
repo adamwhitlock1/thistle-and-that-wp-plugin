@@ -22,7 +22,7 @@ export default new Router({
     {path: '/', component: Welcome},
     {path: '/collections', component: CollectionRadios},
     {path: '/wedding_details', component: WeddingDetails},
-    {path: '/bride_groom', component: Bride},
+    {path: '/bride', component: Bride},
     {path: '/groom', component: Groom},
     {path: '/wedding_party', component: WeddingParty},
     {path: '/bridesmaids', component: Bridesmaids},

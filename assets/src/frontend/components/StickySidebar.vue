@@ -2,7 +2,7 @@
   <div
     id="sticky-sidebar"
     class="container-fluid shadow position-sticky"
-    data-margin-top="175"
+    data-margin-top="185"
   >
     <div
       v-if="$store.state.productInfo"
@@ -29,6 +29,7 @@
               v-model="budget"
               class="mdl-textfield__input"
               type="number"
+              min="0"
               @blur="profileUpdateMixin('budget')"
             />
           </md-field>
@@ -50,7 +51,9 @@
             <md-input
               :value="currentTotal"
               class="mdl-textfield__input"
-              type="text"
+              type="number"
+              min="0"
+              disabled
             />
           </md-field>
         </div>
@@ -95,7 +98,7 @@
 
     <!-- BRIDE AND GROOM -->
     <sticky-sidebar-link
-      anchor="/bride_groom"
+      anchor="/bride"
       text="Bride &amp; Groom"
       icon-classes="fa fa-diamond"
       state-toggle="bride"
@@ -104,7 +107,7 @@
       <sticky-sidebar-link
         v-if="this.$store.state.inView.bride_groom"
         class="sub"
-        anchor="/bride_groom"
+        anchor="/bride"
         state-toggle="bride"
         text="Bride"
       />
@@ -218,6 +221,7 @@
 <script>
 import StickySidebarLink from "./StickySidebarLink"
 import { mapFields } from 'vuex-map-fields'
+import { mapState } from 'vuex'
 export default {
   name: 'StickySidebar',
   components: {
@@ -230,10 +234,14 @@ StickySidebarLink
   },
 
   computed: {
-    ...mapFields(['overviewForm.budget', 'overviewForm.current_total']),
+    ...mapFields(['overviewForm.budget', 'overviewForm.current_total', 'overviewForm']),
+
     currentTotal() {
         return this.$store.getters.getTotalCost
     },
+
+
+
     budgetDif: {
       get() {
         let budget = this.$store.getters.budget

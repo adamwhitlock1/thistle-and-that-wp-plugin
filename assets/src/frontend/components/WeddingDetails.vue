@@ -238,7 +238,7 @@
 
       <prev-next-buttons
         prev="/collections"
-        next="/bride_groom"
+        next="/bride"
       />
     </div>
   </div>

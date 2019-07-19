@@ -101,7 +101,7 @@
         </div>
       </div>
       <prev-next-buttons
-        prev="/bride_groom"
+        prev="/bride"
         next="/bridesmaids"
       />
     </div>
